@@ -40,6 +40,10 @@ last_closing_price = float(series_dict[str(date_objects[1])]["4. close"])
 # calculate percentage difference from 2 last closing prices
 difference = abs(today_price - last_closing_price)/(today_price/2 + last_closing_price/2) * 100
 
+if difference > 5:
+    print("Get News")
+else:
+    print("Difference less than 5")
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
