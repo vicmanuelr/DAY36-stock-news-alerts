@@ -7,7 +7,7 @@ COMPANY_NAME = "Tesla Inc"
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-API_ENDPOINT = "https://www.alphavantage.co/query"
+STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 API_KEY = os.environ.get("API_KEY")
 PARAMETERS_ALPH = {
     "function": "TIME_SERIES_DAILY",
@@ -18,7 +18,7 @@ PARAMETERS_ALPH = {
 
 
 def get_stock_data():
-    response = requests.get(API_ENDPOINT, params=PARAMETERS_ALPH)
+    response = requests.get(STOCK_ENDPOINT, params=PARAMETERS_ALPH)
     response.raise_for_status()
     data = response.json()
     daily_dictionary = data["Time Series (Daily)"]
@@ -45,7 +45,7 @@ if difference > 5:
 else:
     print("Difference less than 5")
 ## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
